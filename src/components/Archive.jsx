@@ -1,15 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useState } from "react";
 import { createRandomPost } from "../helper/createRandomPost";
 import { usePosts } from "../context/PostContext.jsx";
 
-const Archive = () => {
+const Archive = memo(({ show }) => {
   const { onAddPost } = usePosts();
   const [posts] = useState(() =>
     // 💥 WARNING: This might make your computer slow! Try a smaller `length` first
     Array.from({ length: 10000 }, () => createRandomPost())
   );
 
-  const [showArchive, setShowArchive] = useState(false);
+  const [showArchive, setShowArchive] = useState(show);
 
   return (
     <aside>
@@ -32,6 +32,6 @@ const Archive = () => {
       )}
     </aside>
   );
-};
+});
 
 export default Archive;

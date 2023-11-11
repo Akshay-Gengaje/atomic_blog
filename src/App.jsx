@@ -27,7 +27,7 @@ function App() {
       <PostProvider>
         <Header />
         <Main />
-        <Archive />
+        <Archive show={false} />
       </PostProvider>
       <Footer />
     </section>
