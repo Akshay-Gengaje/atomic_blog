@@ -1,7 +1,9 @@
 import FormAddPost from "./FormAddPost";
 import Posts from "./Posts";
 import { usePosts } from "../context/PostContext.jsx";
-const Main = () => {
+import { memo } from "react";
+
+const Main = memo(() => {
   const { posts, onAddPost } = usePosts();
   return (
     <main>
@@ -9,6 +11,6 @@ const Main = () => {
       <Posts posts={posts} />
     </main>
   );
-};
+});
 
 export default Main;
